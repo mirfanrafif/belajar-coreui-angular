@@ -1,0 +1,34 @@
+<div class="animated fadeIn">
+  <div class="card">
+    <div class="card-header">Tambah Data Anak Kos</div>
+    <div class="card-body">
+      <form [formGroup]="formGroup" (ngSubmit)="ngSubmit()">
+        <div class="form-group">
+          <label for="nama">Nama</label>
+          <input type="text" id="nama" class="form-control" formControlName="nama" required
+            [ngClass]="{'is-invalid': formGroup.controls['nama'].errors && formGroup.controls['nama'].touched}">
+          <div class="invalid-feedback">
+            Nama harus diisi
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="asal">Asal</label>
+          <input type="text" id="asal" class="form-control" formControlName="asal" required
+            [ngClass]="{'is-invalid': formGroup.controls['asal'].errors && formGroup.controls['asal'].touched}">
+          <div class="invalid-feedback">
+            Asal harus diisi
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="nohp">No. HP</label>
+          <input type="text" id="nohp" class="form-control" formControlName="nohp" required
+            [ngClass]="{'is-invalid': formGroup.controls['nohp'].errors && formGroup.controls['nohp'].touched}">
+          <div class="invalid-feedback">
+            No. HP harus diisi
+          </div>
+        </div>
+        <button class="btn btn-primary float-right" type="submit">Kirim</button>
+      </form>
+    </div>
+  </div>
+</div>

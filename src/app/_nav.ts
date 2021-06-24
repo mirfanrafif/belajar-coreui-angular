@@ -40,6 +40,9 @@ export const navItems: NavData[] = [
     }
   },
   {
+    divider: true
+  },
+  {
     title: true,
     name: 'Anak Kos'
   },
@@ -221,13 +224,10 @@ export const navItems: NavData[] = [
   //     text: 'NEW'
   //   }
   // },
-  {
-    divider: true
-  },
-  {
-    title: true,
-    name: 'Extras',
-  },
+  // {
+  //   title: true,
+  //   name: 'Extras',
+  // },
   // {
   //   name: 'Pages',
   //   url: '/pages',
