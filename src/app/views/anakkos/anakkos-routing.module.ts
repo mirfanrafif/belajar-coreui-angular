@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { AnakkosHomeComponent } from './home/anakkos-home.component';
 import { AnakKosFormComponent } from './form/anak-kos-form.component';
+import { AnakKosDetailComponent } from './detail/detail.component';
 
 const routes: Routes = [
   {
@@ -17,6 +18,13 @@ const routes: Routes = [
     component: AnakKosFormComponent,
     data: {
       title: 'Add Anak Kos'
+    }
+  },
+  {
+    path: ':id',
+    component: AnakKosDetailComponent,
+    data: {
+      title: 'Detail Anak Kos'
     }
   }
 ];

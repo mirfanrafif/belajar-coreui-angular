@@ -15,38 +15,15 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>1</td>
-              <td>Irfan</td>
-              <td>Malang</td>
-              <td>0283819301823</td>
-            </tr>
-            <tr>
-              <td>1</td>
-              <td>Irfan</td>
-              <td>Malang</td>
-              <td>0283819301823</td>
-            </tr>
-            <tr>
-              <td>1</td>
-              <td>Irfan</td>
-              <td>Malang</td>
-              <td>0283819301823</td>
-            </tr>
-            <tr>
-              <td>1</td>
-              <td>Irfan</td>
-              <td>Malang</td>
-              <td>0283819301823</td>
-            </tr>
-            <tr>
-              <td>1</td>
-              <td>Irfan</td>
-              <td>Malang</td>
-              <td>0283819301823</td>
+            <tr *ngFor="let data of anakKos | paginate: { itemsPerPage: 10, currentPage: currentPage }">
+              <td> {{data.id}} </td>
+              <td> {{data.nama}} </td>
+              <td> {{data.asal}} </td>
+              <td> {{data.nohp}} </td>
             </tr>
           </tbody>
         </table>
+        <pagination-controls (pageChange)="currentPage = $event"></pagination-controls>
         <button class="btn btn-success float-right" routerLink="add">Tambah Data</button>
       </div>
     </div>

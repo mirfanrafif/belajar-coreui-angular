@@ -1,5 +1,7 @@
+import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { AnakKosService } from '../../../core/services/anak-kos.service';
 
 @Component({
   selector: 'app-anak-kos-form',
@@ -9,7 +11,9 @@ export class AnakKosFormComponent implements OnInit {
 
   private formGroup: FormGroup
 
-  constructor() { }
+  constructor(private anakKosService: AnakKosService,
+    private location: Location
+  ) { }
 
   ngOnInit() {
     this.formGroup = new FormGroup({
@@ -25,11 +29,19 @@ export class AnakKosFormComponent implements OnInit {
       const asal = this.formGroup.get('asal').value
       const nohp = this.formGroup.get('nohp').value
 
-      console.log(`${nama} ${asal} ${nohp}`)
+      this.anakKosService.addAnakKos(nama, asal, nohp).subscribe({
+        next: data => {
+          this.location.back()
+        }
+      })
     } else {
       console.log('Isi data yang lengkap')
       this.formGroup.controls['nama'].setErrors({ 'incorrect': true })
     }
+  }
+
+  validations(formControlName: string) {
+    return this.formGroup.controls[formControlName].errors && this.formGroup.controls[formControlName].touched
   }
 
 }

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AnakKos } from '../../../core/entities/AnakKos';
+import { AnakKosService } from '../../../core/services/anak-kos.service';
 
 @Component({
   selector: 'app-anakkos-home',
@@ -6,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AnakkosHomeComponent implements OnInit {
 
-  constructor() { }
+  anakKos: AnakKos[] = []
+  currentPage: number = 1;
+
+  constructor(private anakKosService: AnakKosService) { }
 
   ngOnInit() {
+    this.anakKosService.getAnakKos().subscribe(data => {
+      this.anakKos = data;
+    })
   }
 
 }

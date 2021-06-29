@@ -3,11 +3,13 @@ import { Routes, RouterModule } from '@angular/router';
 
 // Import Containers
 import { DefaultLayoutComponent } from './containers';
+import { AuthGuard } from './core/guard/auth.guard';
 import { AnakkosHomeComponent } from './views/anakkos/home/anakkos-home.component';
 
 import { P404Component } from './views/error/404.component';
 import { P500Component } from './views/error/500.component';
 import { LoginComponent } from './views/login/login.component';
+import { LogoutComponent } from './views/logout/logout.component';
 import { RegisterComponent } from './views/register/register.component';
 
 export const routes: Routes = [
@@ -45,11 +47,16 @@ export const routes: Routes = [
     }
   },
   {
+    path: 'logout',
+    component: LogoutComponent
+  },
+  {
     path: '',
     component: DefaultLayoutComponent,
     data: {
       title: 'Home'
     },
+    canActivate: [AuthGuard],
     children: [
       {
         path: 'anakkos',
